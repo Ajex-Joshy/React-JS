@@ -855,7 +855,7 @@ $RefreshReg$(_c1, "AppLayout");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","./components/Header.jsx":"8BCUx","./components/Body.jsx":"c4zl2","react-router-dom":"61z4w","./components/About.jsx":"aOGfJ","./components/Contact.jsx":"d75GN","./components/Error.jsx":"iEFdl","./components/Menu.jsx":"DW0zo","./utils/UserContext.js":"8LxkN","90383a8b93111cf9":"llYxf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-redux":"hbNxT","./utils/appStore.js":"dpIkN","./components/Cart.js":"h9Vh3"}],"dVPUn":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","./components/Header.jsx":"8BCUx","./components/Body.jsx":"c4zl2","react-router-dom":"61z4w","./components/About.jsx":"aOGfJ","./components/Contact.jsx":"d75GN","./components/Error.jsx":"iEFdl","./components/Menu.jsx":"DW0zo","./utils/UserContext.js":"8LxkN","react-redux":"hbNxT","./utils/appStore.js":"dpIkN","./components/Cart.js":"h9Vh3","90383a8b93111cf9":"llYxf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dVPUn":[function(require,module,exports,__globalThis) {
 'use strict';
 module.exports = require("ee51401569654d91");
 
@@ -16460,7 +16460,7 @@ $RefreshReg$(_c, "Header");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","../utils/constants":"dIVBf","react":"jMk1U","react-router-dom":"61z4w","../utils/useOnlineStatus":"7Vx9K","../utils/UserContext":"8LxkN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-redux":"hbNxT"}],"dIVBf":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","../utils/constants":"dIVBf","react":"jMk1U","react-router-dom":"61z4w","../utils/useOnlineStatus":"7Vx9K","../utils/UserContext":"8LxkN","react-redux":"hbNxT","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dIVBf":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "LOGO_URL", ()=>LOGO_URL);
@@ -27253,7 +27253,7 @@ $RefreshReg$(_c, "Body");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","./ResCard":"4CwYP","react":"jMk1U","./Shimmer.jsx":"hJyAf","../utils/useResData.js":"9xGUd","../utils/useOnlineStatus.js":"7Vx9K","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../utils/UserContext.js":"8LxkN"}],"4CwYP":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","./ResCard":"4CwYP","react":"jMk1U","./Shimmer.jsx":"hJyAf","../utils/useResData.js":"9xGUd","../utils/useOnlineStatus.js":"7Vx9K","../utils/UserContext.js":"8LxkN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"4CwYP":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$318b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$318b.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -28495,7 +28495,7 @@ $RefreshReg$(_c, "Items");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","../utils/constants":"dIVBf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-redux":"hbNxT","../utils/cartSlice":"8EWXN"}],"8EWXN":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react-redux":"hbNxT","../utils/constants":"dIVBf","../utils/cartSlice":"8EWXN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"8EWXN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addItem", ()=>addItem);
@@ -32512,10 +32512,7 @@ function createThunkMiddleware(extraArgument) {
 var thunk = createThunkMiddleware();
 var withExtraArgument = createThunkMiddleware;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"llYxf":[function(require,module,exports,__globalThis) {
-module.exports = import("./Instamart.7a8cd8be.js").then(()=>module.bundle.root('8gQUc'));
-
-},{"8gQUc":"8gQUc"}],"dpIkN":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dpIkN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _toolkit = require("@reduxjs/toolkit");
@@ -32528,7 +32525,7 @@ const appStore = (0, _toolkit.configureStore)({
 });
 exports.default = appStore;
 
-},{"@reduxjs/toolkit":"fKS5f","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./cartSlice":"8EWXN"}],"h9Vh3":[function(require,module,exports,__globalThis) {
+},{"@reduxjs/toolkit":"fKS5f","./cartSlice":"8EWXN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"h9Vh3":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$16fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$16fb.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -32622,6 +32619,9 @@ $RefreshReg$(_c, "Cart");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-redux":"hbNxT","./Items":"6QhXl","../utils/cartSlice":"8EWXN"}]},["4bVDZ","2oUVH"], "2oUVH", "parcelRequire9b8c", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","react-redux":"hbNxT","./Items":"6QhXl","../utils/cartSlice":"8EWXN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"llYxf":[function(require,module,exports,__globalThis) {
+module.exports = import("./Instamart.7a8cd8be.js").then(()=>module.bundle.root('8gQUc'));
+
+},{"8gQUc":"8gQUc"}]},["4bVDZ","2oUVH"], "2oUVH", "parcelRequire9b8c", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=6.HungryDine-3.9a0bba21.js.map
