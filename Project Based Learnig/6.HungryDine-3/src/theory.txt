@@ -1,0 +1,60 @@
+A higher order component is a function that takes an component enchance it and then returns the enchanced 
+component
+
+lets see a use case
+for eg in home page we have restaurants card. For promoted restaurants we have to give a label promoted
+so we will implement that
+
+now lets see what is data layer and UI layer in react
+
+UI layer is the layer which user actually sees and interacts with
+Responsibilities
+    Rendering components (button, cards, forms, lists etc)
+    Handling user interaction (clicking, typing, navigation)
+    showing data from the data layer in readable format
+
+Data layer manages the data, business logic, and state of the app
+Responsibilities
+    Fetch data (from API, database, local storage)
+    Managing global or local state (using useState, useContext, Redux etc)
+
+
+How They Work Together
+	1.	Data layer fetches and manages data → keeps it updated.
+	2.	UI layer consumes that data → renders it in components.
+	3.	When the user interacts (UI), the action may update the data layer, which re-renders the UI.
+
+
+Controlled and Uncontrolled components
+Controlled components are Controlled by parent via stat
+Uncontrolled components keeps track of data themselves
+
+
+Lifting State 
+In react Lifting state up means moving the state from a child component into a common parent component
+so that multiple children can share and sync data 
+
+If each child manages its own state, they can get out of sync.
+
+By lifting the state up to their parent, the parent becomes the single source of truth, and the children 
+just receive props.
+
+
+🔹 Key Idea
+	•	Before lifting: each child manages its own state.
+	•	After lifting: parent manages the state → passes down data & callbacks as props.
+	•	Ensures a single source of truth.
+
+
+Props drilling
+Props drilling in React happens when you pass data (props) from a parent component down through many 
+layers of child components, even if only the deeply nested child actually needs it.
+
+so here we are unnecessarily passing props through components to reach desired component
+so instead of that we can use context Api where we can set global values that can be updated and read 
+from any part of app
+For large scale applications we can use state management libraries like Redux
+
+
+
+

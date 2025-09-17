@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <title>Hello World</title>
+</head>
+<body>
+    <div id="root">
+         <h1>Ajex is here</h1> <!-- this will be replace by parent when we render -->
+    </div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+
+    <!-- if we have to create this sturcture in react -->
+    <div id="parent">
+        <div id="child">
+            <h1>This is h1 tag</h1>
+        </div>
+    </div>
+
+    <script>
+        const parent = React.createElement("div", {id: "parent"}, 
+            React.createElement("div", {id: "child"}, 
+                React.createElement("h1", {}, "This is h1 tag")
+            )
+        )
+        const root = ReactDOM.createRoot(document.getElementById("root"))
+        root.render(parent)
+    </script>
+
+    <div id="parent">
+        <div id="child">
+            <h1>This is h1 tag</h1>
+            <h2>This is h2 tag</h2>
+        </div>
+    </div>
+
+    <script>
+        const parent2 = React.createElement("div", {id: "parent"}, 
+            React.createElement("div", {id: "child"}, 
+                [
+                    React.createElement("h1", {}, "This is h1 tag"),
+                    React.createElement("h2", {}, "This h2 tag")
+                ] // array of elements
+            )
+        )
+        const root2 = ReactDOM.createRoot(document.getElementById("root2"));
+        root2.render(parent2);
+    </script>
+
+
+
+
+<!-- now lets make this sturcture -->
+    <div id="parent">
+        <div id="child1">
+            <h1>This is h1 tag</h1>
+            <h2>This is h2 tag</h2>
+        </div>
+        <div id="child2">
+            <h1>This is h1 tag</h1>
+            <h2>This is h2 tag</h2>
+        </div>
+    </div>
+
+    <script>
+        const parent3 = React.createElement("div", {id: "parent"},
+            [
+                React.createElement("div", {id: "child"}, 
+                    [
+                        React.createElement("h1", {}, "This is h1 tag"),
+                        React.createElement("h2", {}, "This h2 tag")
+                    ] 
+                ),
+                React.createElement("div", {id: "child"}, 
+                    [
+                        React.createElement("h1", {}, "This is h1 tag"),
+                        React.createElement("h2", {}, "This h2 tag")
+                    ] 
+            )
+            ]
+        )
+        // This is not readable or user friendly here comes the JSX which we will study later
+        const root3 = ReactDOM.createRoot(document.getElementById("root3"));
+        root3.render(parent3);
+    </script>
+</body>
+</html>

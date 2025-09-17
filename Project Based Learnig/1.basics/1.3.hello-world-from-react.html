@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> <!-- This contains the core React library. -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> <!--  This is a separate package that knows how to render React elements into the DOM (the browser’s HTML). -->
+
+    <script>
+        const heading = React.createElement("h1", {}, "Hello World From React!");
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(heading);
+
+        // ReactDOM.createRoot(...) → tells React that this is the “root” of your React application. Starting 
+        // from here, React manages updates to the DOM inside that div.
+        // root.render(heading); - renders your React element (heading) into the <div id="root"></div>
+    </script>
+
+    <!-- The crossorigin attribute tells the browser how to handle Cross-Origin Resource Sharing (CORS) 
+    when loading a resource (like a script, image, or font) from a different domain (in this case, from 
+    unpkg.com, not your local site). -->
+</body>
+</html>

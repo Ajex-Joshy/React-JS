@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hooks are basically predifined function in react
+React Hooks are functions that allow you to use state and other React features in functional components
+
+lets see what is state 
+State in React refers to a special kind of object that is used to store dynamic data in a component. 
+Unlike variables, when state changes, the component re-renders automatically, so the UI always stays in 
+sync with the data.
+
+
+so to make a state variable we will use a hook called useState that we have to import from react 
+lets see how to make a state variable 
+
+<script>
+    import { useState } from "react" // useState is exported as named export from react in node modules\
+
+    const Counter = () => {
+        const [count, setCount] = useState(0)
+        return (
+            
+            // here count is the state variable
+            // setCount is the function to update count. we will pass updated data as parameter
+            // useState() is the hook. we will pass the inital value as parameter
+            // if any change is made to count variable using SetCount the ui will automatically re-render
+
+            <div className="btn-container">
+                <button onclick={()=> setCount(count + 1)}>Click Me</button>
+                <P>you clicked button {count} times</P>
+            </div>
+        )
+    }
+    
+</script>
+
+
+lets see difference between State and Props  
+
+State vs Props:  
+
+- State is managed inside a component and can change over time.  
+- Props are passed from parent to child and are read-only.  
+
+<table border="1">
+  <tr><th>Feature</th><th>State</th><th>Props</th></tr>
+  <tr><td>Definition</td><td>Data managed inside a component</td><td>Data passed from parent to child</td></tr>
+  <tr><td>Mutability</td><td>Mutable (can be updated with setState / setCount)</td><td>Immutable (cannot be changed by child)</td></tr>
+  <tr><td>Ownership</td><td>Local to the component</td><td>Owned by parent component</td></tr>
+  <tr><td>Use Case</td><td>For dynamic, interactive data</td><td>For passing values, configurations</td></tr>
+</table>
+
+Example:  
+
+<script>
+    const Child = ({ title }) => {
+        return <h2>{title}</h2> // title is a prop
+    }
+
+    const Parent = () => {
+        const [count, setCount] = useState(0) // count is state
+        return (
+            <div>
+                <Child title="This is a prop example" />
+                <p>Count is {count}</p>
+                <button onClick={() => setCount(count + 1)}>Increase</button>
+            </div>
+        )
+    }
+</script>
+
+⸻
+
+🔹 1. Virtual DOM (VDOM)
+	•	What it is:
+The Virtual DOM is a lightweight, in-memory representation of the actual DOM.
+It is a JavaScript object that mirrors the real DOM structure.
+	•	Why it’s needed:
+Direct DOM manipulation is slow because browsers recalculate styles, layouts, and re-render elements.
+The VDOM makes UI updates faster by:
+	1.	Creating a virtual copy of the UI.
+	2.	Updating only the parts that changed instead of re-rendering the entire DOM.
+	•	How it works:
+	1.	React builds a virtual tree (VDOM) whenever the component renders.
+	2.	When state/props change, React creates a new VDOM.
+	3.	React compares the new VDOM with the old one (diffing).
+	4.	Only the differences (patches) are updated in the real DOM.
+
+⸻
+
+🔹 2. Diff Algorithm
+
+React uses a reconciliation algorithm (diffing) to compare the old and new VDOM efficiently.
+	•	Naive diffing: Comparing two DOM trees node-by-node → O(n³) complexity (too slow).
+	•	React’s optimized diffing: Uses heuristics to reduce it to O(n).
+
+Main rules React follows:
+	1.	Element type comparison
+	•	If two elements have different types, React destroys the old tree and builds a new one.
+	•	Example: <div> → <span> means React removes the div and creates a span.
+	2.	Same type elements
+	•	React compares attributes/props and only updates the changed ones.
+	•	Example: <button class="red"> → <button class="blue"> updates only class.
+	3.	Lists (keys are important)
+	•	React uses keys to identify items in a list.
+	•	If keys match → React reuses the element.
+	•	If keys don’t match → React destroys and rebuilds.
+	•	Example:
+
+const list = items.map(item => <li key={item.id}>{item.name}</li>)
+
+
+
+⸻
+
+🔹 3. React Fiber
+	•	What it is:
+React Fiber is the new reconciliation engine (since React 16).
+It allows React to split rendering work into chunks and spread it over multiple frames → asynchronous rendering.
+	•	Why Fiber?
+The old algorithm was synchronous (once started, it couldn’t be interrupted).
+Large updates blocked the UI → poor performance.
+	•	Features of Fiber:
+	1.	Incremental rendering → work can be paused, resumed, or aborted.
+	2.	Prioritization → important updates (like user input) are handled first.
+	3.	Concurrency → React can prepare multiple versions of UI and commit the best one.
+	•	Fiber Architecture:
+	•	Each element is represented as a Fiber Node (a JS object).
+	•	Fiber nodes keep track of:
+	•	Component type
+	•	Pending props
+	•	State
+	•	Child, sibling, and parent fibers
+
+⸻
+
+🔹 4. Reconciliation
+	•	What it is:
+The process React uses to update the DOM when state/props change.
+	•	Steps:
+	1.	Render phase:
+	•	React builds a new VDOM tree.
+	•	Fiber breaks rendering work into units (Fiber Nodes).
+	•	Diff algorithm compares old tree vs new tree.
+	•	This phase is interruptible (can pause for high-priority tasks).
+	2.	Commit phase:
+	•	React applies the changes to the real DOM.
+	•	This phase is synchronous (cannot be interrupted).
+	•	Two phases analogy:
+	•	Render phase = “Planning what to update.”
+	•	Commit phase = “Actually updating the DOM.”
+
+⸻
+
+✅ Quick Summary:
+	•	Virtual DOM: Efficient copy of the real DOM.
+	•	Diff Algorithm: Compares old vs new VDOM (O(n) optimization).
+	•	React Fiber: New reconciliation engine → allows async, prioritized updates.
+	•	Reconciliation: Full process of updating UI → Render phase + Commit phase.
+
+⸻
+
+</body>
+</html>

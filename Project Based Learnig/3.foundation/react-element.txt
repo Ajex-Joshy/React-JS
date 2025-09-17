@@ -1,0 +1,20 @@
+React Element
+A React element is a plain JavaScript object that describes what you want to see on the screen. 
+It is not a real HTML element, but a blueprint for one.
+
+Key points:
+	•	Immutable: once created, it cannot be changed.
+	•	Created using React.createElement() or JSX.
+	•	Contains type, props, and children.
+	•	React uses it to update the Virtual DOM efficiently.
+
+
+const heading = <h1 id="heading">Hello World</h1>;
+
+React internally converts it into:
+
+React.createElement(
+  "h1",
+  { id: "heading" },
+  "Hello World"
+)

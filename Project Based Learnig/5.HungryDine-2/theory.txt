@@ -1,0 +1,74 @@
+We can have two approaches while rendering UI with respect to data from backend
+
+1.   Loads -> call API -> Render
+2. Loads -> Render (shimmer UI) -> call API -> Render Again
+
+In react it is always better to have second approach as it gives better UX - user experience 
+
+In first case first the user see blank page and wait till api send data and renders the data
+In second case user can see some UI which doesn’t need API and populate data from API after getting data
+And also react is super fast in rendering so its not a issue for rendering it twice
+
+useState hook is used to create local state variable inside a component
+always write useState inside component (top of component)
+dont use useState inside a if else condition, for loop, function (it is a pefectly valid code but it will create inconsistency)
+
+now lets see useEffect hook
+the syntax is 
+useEffect(() => {
+
+}, [])
+the 1st argument is a callback function and second argument is a dependency array(optional)
+lets see the behaviour of useEffect hook
+1. if we doesn’t give dependency array the callback function executes every time when the component renders
+2. if we give an empty dependency array [] the callback will be executed only once in when the component renders initial time
+3. if we give dependency in the array the callback will be executed when the dependency updates or changes
+
+
+
+In React Router, child routes (also called nested routes) let you define routes inside other routes.
+This is useful when you have a layout (like a dashboard, navbar, or sidebar) that stays the same, but the 
+content inside it changes depending on the route.
+
+for routing
+In React Router, Link is a component used for navigation between routes in a single-page application (SPA).
+It works like an HTML <a> tag, but instead of making the browser reload the page, it updates the URL and 
+renders the new component without a full refresh.
+
+
+A SPA (Single Page Application) is a type of web application that loads a single HTML page and dynamically 
+updates the content as the user interacts with it, without reloading the whole page. (this is very fast)
+
+
+
+1. Functional Component
+
+✅ A JavaScript function that returns JSX.
+✅ Simple, shorter, and the modern standard.
+✅ Can use React Hooks (useState, useEffect, etc.) for state & lifecycle.
+
+
+2. Class Component
+
+✅ Uses ES6 class syntax.
+✅ Must extend React.Component.
+✅ Has a render() method to return JSX.
+✅ Used before Hooks existed (older React).
+
+
+now lets see the component lifecycle
+Don’t update your state variables directly using = operator ( in both function and class )
+Also in class component if you have to update 2 state variables at same time don’t
+Write this.state() two times. Update in one go
+
+
+Lifecycle of class component
+First it loads (mounts) the parent component, then if it sees a class component then a new instance of that 
+Class is mounted and first the constructor is called then the render is called
+
+
+Suppose if we have a class component inside a class component 
+Then first parents constructor will called then parent render, child constructor, child render (see it 
+in console.log)
+If we have componentDidMount
+Parent constructor, parent render, child constructor, child render, child componentDidMount, parent childDidMount

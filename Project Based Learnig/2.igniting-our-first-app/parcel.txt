@@ -1,0 +1,92 @@
+What is bundling?
+Bundling is the process of taking all your project files (JavaScript, CSS, images, etc.) and 
+combining/optimizing them into a smaller set of files that the browser can efficiently load.
+
+	•	Dev build (fast, with HMR) - for devs while coding
+	•	Prod build (optimized bundle with minification, tree shaking, etc.) - for deployment (end users)
+
+egs of bundlers - parcel, webpack, vite efficiently
+we will be using parcel
+⸻
+
+Building
+The entire process of preparing your code for deployment (production).
+This usually includes bundling, but also:
+	•	Minification (shrinking code size)
+	•	Tree shaking (removing unused code)
+	•	Transpilation (making modern JS work in older browsers)
+	•	Generating output files (like the dist/ folder in Parcel)
+	•	Goal: Produce optimized, production-ready code.
+
+dev build - npx parcel index.html
+prod build - npx parcel build index.html
+Npx parcel index.html vs npc parcel build index.html
+
+Parcel features
+- Dev build
+- Local server
+- HMR - Hot Module Replacement ( auto refreshes browser after saving) - it rebuilds again
+- Using file watching algorithm (c++)
+- Faster builds (caching)
+- Image optimization 
+- Minification of code
+- Bundler
+-  Compression
+- Consistent hashing
+- Code splitting
+- Differential bundling - to support different browsers
+- Diagnosis code
+- Tree shaking - remove unused code
+- Different dev and prod bundle
+
+When you create a production build with Parcel:
+Parcel will generate a dist/ folder that contains optimized, production-ready files 
+(HTML, JS, CSS, images, etc.).
+But 🚨 unlike npx parcel index.html (dev mode), the prod build does not start a server. It just creates 
+static files.
+To run this static file we can use npx serve dist
+
+
+📂 .parcel-cache folder
+	•	Created by Parcel automatically.
+	•	Stores cached build data so that the next build is much faster.
+📂 dist folder
+	•	The output folder where Parcel puts the bundled files.
+    •	contains production-ready with optimized, minified, tree-shaken files that you can deploy.
+
+Browserslist = a way to specify which browsers your project should support, so tools like Parcel/Babel/PostCSS can adjust your code accordingly.
+If you put this in your package.json:
+"browserslist": [
+  "last 2 Chrome versions",
+  "last 2 Firefox versions",
+  "last 2 Safari major versions",
+  "last 2 Edge major versions"
+]
+
+if we need all browsers to support last 10 versions
+browserslist: [
+    last 10 versions
+]
+
+
+
+Just To Know 
+While npm manages the package it does not stand for the abbreviation node package manager
+Package.json is a configuration for npm
+Npm I -D parcel (will install as dev dependencies)
+Transitive dependencies means a dependencies having another chain of dependencies
+
+NOTE: In create-react-app, the bundler used is webpack.
+
+also it is an industry standard to make script to build or start our project
+for that we can give the following commands in the script in package.json
+
+"script": {
+	"start": "parcel index.html",
+	"build": "parcel build index.html"
+}
+
+npm run start -> will create dev build
+npm run build -> will create prod build
+
+also we can do npm start (this will only work for start keyword) builds dev build

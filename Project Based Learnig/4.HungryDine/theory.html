@@ -1,0 +1,84 @@
+Here we build a config driven UI
+
+A Config Driven UI means instead of hard-coding your UI structure in React (or any framework), you 
+describe the UI using a configuration object (JSON, JS object, or API response) — and then render the 
+UI dynamically based on that config.
+
+Example
+Without config-driven UI (hard-coded):
+
+<script>
+    function App() {
+        return (
+            <div>
+            <h1>Menu</h1>
+            <button>Pizza</button>
+            <button>Burger</button>
+            <button>Pasta</button>
+            </div>
+        );
+    }
+</script>
+If tomorrow you need to add “Fries,” you must edit the code.
+
+With config-driven UI:
+<script>
+    const menuConfig = [
+        { id: 1, label: "Pizza" },
+        { id: 2, label: "Burger" },
+        { id: 3, label: "Pasta" }
+    ];
+
+function App() {
+  return (
+    <div>
+      <h1>Menu</h1>
+      {menuConfig.map(item => (
+        <button key={item.id}>{item.label}</button>
+      ))}
+    </div>
+  );
+}
+</script>
+Now if you want to add “Fries,” just update the config, not the component code.
+
+
+In React, keys are special string attributes you add when creating lists of elements
+
+ Why do we need a unique key?
+	1.	Efficient Reconciliation (Diffing Algorithm)
+        React uses a virtual DOM. When the state/props change, React compares the new virtual DOM with 
+        the old one (diffing).
+	•	If an element has the same key as before, React reuses that DOM node instead of re-creating it.
+	•	If the key changes (or is missing), React assumes it’s a new element and will destroy & re-create it → more expensive.
+	2.	Stable Identity
+        Keys give each item a stable identity. This is important when:
+	•	Reordering list items
+	•	Adding/removing items dynamically
+        Without keys, React might accidentally reuse the wrong component instance → causing bugs 
+        (like wrong input values sticking to the wrong row).
+	3.	Performance
+        With keys, React can skip unnecessary re-renders. Without them, React re-renders everything in the 
+        list, even if only one element changed.
+
+why should not we use index as key?
+	1.	Reordering issues
+        Suppose you render a list with keys as index:
+            {items.map((item, index) => <ResCard key={index} data={item} />)}
+        If the list is reordered (say item at index 2 moves to index 0), React will not re-render the correct component — instead, it reuses the DOM node tied to that index.
+        ➝ Result: data and UI mismatch.
+    2.	Insert/Delete bugs
+        Example:
+            •	List = [A, B, C] with keys [0, 1, 2]
+            •	Insert X at start → [X, A, B, C] with keys [0, 1, 2, 3]
+        React thinks all nodes shifted → reuses wrong DOM nodes.
+        ➝ Inputs lose focus, state sticks to wrong row, animations glitch.
+    3.	Component State Loss
+        Components with local state (like input fields) get mixed up:
+            •	If you type in one input and reorder/delete items, the typed text might appear in a 
+                different row.
+    4.	Performance hit
+        Without stable keys, React re-renders all children unnecessarily, instead of just updating the 
+        changed one.
+
+so in the backend while you send data attach a unique key with it

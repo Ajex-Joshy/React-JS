@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    now lets study about context but before that we should know what is props
+    drilling suppose the structure of our component is grand component -> parent
+    component -> child component and if we have to pass a data to child
+    component first we have to pass a data to child component first we have to
+    pass to grand component then to parent and then to child Props drilling in
+    React means passing data from a parent component down to deeply nested child
+    components through multiple layers of props, even if the intermediate
+    components don’t actually need that data. for eg if the grand component will
+    have the data about the loggedIn user and if child needs it we has to pass
+    it through parent even though parent doesnt need that data so in order to
+    solve this problem we will use the content API and state managment libraries
+    like Redux etc The Context API in React is a built-in way to share data
+    across components without using props drilling. It allows you to create a
+    “global” state that can be accessed by any component in the component tree,
+    no matter how deeply nested. How it Works 1. Create a Context → using
+    React.createContext(). 2. Provide the Context → wrap components inside a
+    Provider component and supply the value. 3. Consume the Context → access the
+    value using useContext hook or Consumer. Benefits: • Avoids props drilling.
+    • Cleaner and easier to maintain. • Great for global data like theme,
+    authentication, language, etc. lets see the steps involved in that first we
+    will make an context variable in a separate file suppose if we need to
+    create a UserContext which holds the information about the loggedIn user, I
+    will create a file UserContext.js (in utils) and will create a context
+    variable using createContext() and we will pass the intitial data as
+    parameter and then we will export this this variable can be accessed in any
+    component of application To access or use a context variable we will use
+    useContext hook and we will pass the context variable as parameter but in
+    class based component we dont have hooks To access in class based component
+    we can use
+    <useContext.Consumer> {(data) => console.log(data)} </useContext.Consumer>
+
+    so inside the variable.Consumer we will have a callback function and the
+    parameter of the cb will contain the context vaiable To update a context
+    variable we will use
+    <variable.Provider value="{}">
+      components where we need to access the variable
+    </variable.Provider>
+    first we will fetch data from api call in useEffect() then we will update
+    the local state variable then we will update the context variable now lets
+    study about Redux one thing to note about is that we doesnt need redux for
+    every project Redux is not mandatory use Redux if you are building very
+    large scale application use it only when required zustand is alternative of
+    redux so the feature we are going to implement with the redux is that we
+    will build the card using redux so now we will use redux for managing data
+    of our application first lets understand the architecture of redux Redux
+    Redux store its a global object where we store data we will store the
+    separate data in separate slice in the store for eg we will store cart data
+    in one slice, user data in one slice So if we click add button we cannot
+    directly add data to the slice So when we click add button it dispatches an
+    action and then it calls the function and this function modifies The cart
+    data in slice The function is known as reducer function So finally When we
+    click add button it dispatches an action which calls the reducer function
+    which updates the slice of the redux store Now lets see how to get this data
+    For that we will use selector to read the data from the store and will
+    modify the react component This phenomenon is known as subscribing to store
+    So suppose the cart will show the no of items in cart So the cart will be
+    subscribed to the particular slice of the store using selector So the cart
+    will automatically get updated Redux toolkit Install @reduxjs/toolkit and
+    react-redux Build store Connect our store to our app Slice (cartSlice)
+    Dispatch (action) Selector first we will configure the store and then export
+    it. using configureStore then we will provide it to our application using
+    provider then we will create slice using createSlice() it takes
+    configuration as name, initialState, reducers if you want to modify a store
+    it also has a reducer so we will add a reducers for the slice in the store
+    now we will read data from our store for that we will subsribe to store
+    using useSelector() here cart will subscribe to store now we will dispatch
+    event when add button is clicked for that we will use useDispatch hook now
+    some important points - whenever you are subscribing to the store make sure
+    you are subscribing to the right portion of the store - for eg (store) =>
+    store.cart.items - so that we can optimise performance now be carefull when
+    we are writing reducer and reducers keyword in slice we are writing multiple
+    reducer function so the keyword is reducers but when we export it we export
+    as a single reducer object so when exporting the keyword is slice.reducer
+    while configurating our store we are giving one reducer object so its
+    reducer in vannila redux or older redux we should not directly mutate the
+    state what the devs will do in the sense they will create a new copy of the
+    state and will mutate the state copy and then we will return it but in redux
+    toolkit we have to mutate the state but behind the scene redux is doing it
+    with the help of immer library which finds the difference between the new
+    state and the old state and returns the next immutable state without
+    actually mutating the original state. RTK says that either mutate the
+    existing state or return a new state use Redux extension very very very
+    usefull for debugging explore it RTK query explore it from official website1
+  </body>
+</html>
