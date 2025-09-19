@@ -74,9 +74,9 @@ Example:
     }
 </script>
 
-⸻
 
-🔹 1. Virtual DOM (VDOM)
+
+ 1. Virtual DOM (VDOM)
 	•	What it is:
 The Virtual DOM is a lightweight, in-memory representation of the actual DOM.
 It is a JavaScript object that mirrors the real DOM structure.
@@ -91,9 +91,9 @@ The VDOM makes UI updates faster by:
 	3.	React compares the new VDOM with the old one (diffing).
 	4.	Only the differences (patches) are updated in the real DOM.
 
-⸻
 
-🔹 2. Diff Algorithm
+
+ 2. Diff Algorithm
 
 React uses a reconciliation algorithm (diffing) to compare the old and new VDOM efficiently.
 	•	Naive diffing: Comparing two DOM trees node-by-node → O(n³) complexity (too slow).
@@ -118,7 +118,7 @@ const list = items.map(item => <li key={item.id}>{item.name}</li>)
 
 ⸻
 
-🔹 3. React Fiber
+ 3. React Fiber
 	•	What it is:
 React Fiber is the new reconciliation engine (since React 16).
 It allows React to split rendering work into chunks and spread it over multiple frames → asynchronous rendering.
@@ -137,9 +137,9 @@ Large updates blocked the UI → poor performance.
 	•	State
 	•	Child, sibling, and parent fibers
 
-⸻
 
-🔹 4. Reconciliation
+
+ 4. Reconciliation
 	•	What it is:
 The process React uses to update the DOM when state/props change.
 	•	Steps:
@@ -155,15 +155,14 @@ The process React uses to update the DOM when state/props change.
 	•	Render phase = “Planning what to update.”
 	•	Commit phase = “Actually updating the DOM.”
 
-⸻
 
-✅ Quick Summary:
+Quick Summary:
 	•	Virtual DOM: Efficient copy of the real DOM.
 	•	Diff Algorithm: Compares old vs new VDOM (O(n) optimization).
 	•	React Fiber: New reconciliation engine → allows async, prioritized updates.
 	•	Reconciliation: Full process of updating UI → Render phase + Commit phase.
 
-⸻
+
 
 </body>
 </html>

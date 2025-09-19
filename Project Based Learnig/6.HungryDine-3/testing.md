@@ -102,7 +102,7 @@ Now its time to write testcases
 for that we will write all test cases in
 `__test__` folder
 so all the files in this folder is considered as test cases
-or you can write file with extension .test.js or .spec.js
+we write file with extension .test.js or .spec.js
 eg: Header.test.js, Body.spec.js
 
 also just for information
@@ -140,3 +140,7 @@ test("sum function should calculate the sum of two number", () => {
   // if the result is not 7 the test case would fail
 });
 ```
+
+
+
+

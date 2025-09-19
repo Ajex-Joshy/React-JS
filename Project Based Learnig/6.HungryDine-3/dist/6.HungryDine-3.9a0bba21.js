@@ -16276,7 +16276,7 @@ var _reactRedux = require("react-redux");
 var _s = $RefreshSig$();
 const Header = ()=>{
     _s();
-    const [headerBtn, setHeaderBtn] = (0, _react.useState)("Loign");
+    const [headerBtn, setHeaderBtn] = (0, _react.useState)("Login");
     const data = (0, _react.useContext)((0, _userContextDefault.default));
     const { name } = (0, _react.useContext)((0, _userContextDefault.default));
     // subscribing to the store
@@ -16435,7 +16435,7 @@ const Header = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(Header, "VPPQ0cNSLpci/Vlfzwlfu1hloJY=", false, function() {
+_s(Header, "Fg9uFxY6c1Uil8aBWG0ScTKG1dY=", false, function() {
     return [
         (0, _reactRedux.useSelector),
         (0, _useOnlineStatusDefault.default)
@@ -27973,15 +27973,59 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const Contact = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            className: "text-center text-3xl font-bold p-4",
-            children: "Contact Us"
-        }, void 0, false, {
-            fileName: "src/components/Contact.jsx",
-            lineNumber: 4,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
+        className: "mt-34",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "text-center text-3xl font-bold p-4",
+                children: "Contact Us"
+            }, void 0, false, {
+                fileName: "src/components/Contact.jsx",
+                lineNumber: 4,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                action: "",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        className: "border-2 m-4",
+                        type: "text",
+                        placeholder: "name",
+                        name: "",
+                        id: ""
+                    }, void 0, false, {
+                        fileName: "src/components/Contact.jsx",
+                        lineNumber: 6,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        className: "border-2 m-4",
+                        type: "text",
+                        placeholder: "age",
+                        name: "",
+                        id: ""
+                    }, void 0, false, {
+                        fileName: "src/components/Contact.jsx",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        className: "bg-green-400 rounded-lg m-4 px-4 py-1",
+                        type: "submit",
+                        name: "",
+                        id: ""
+                    }, void 0, false, {
+                        fileName: "src/components/Contact.jsx",
+                        lineNumber: 20,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Contact.jsx",
+                lineNumber: 5,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/Contact.jsx",
         lineNumber: 3,
         columnNumber: 5

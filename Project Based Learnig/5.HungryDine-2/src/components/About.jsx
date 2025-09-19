@@ -167,7 +167,7 @@ export default About;
 // •	If you don’t call super(props), this.props will be undefined inside the constructor.
 // •	React passes props to the base React.Component class, which then assigns them to this.props.
 
-// ✅ Rule of thumb:
+//  Rule of thumb:
 // 	•	Always use super(props) when you define a constructor in a React class component.
 // 	•	If you don’t need a constructor, you can skip it entirely.
 

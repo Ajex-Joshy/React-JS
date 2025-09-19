@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [headerBtn, setHeaderBtn] = useState("Loign");
+  const [headerBtn, setHeaderBtn] = useState("Login");
   const data = useContext(UserContext);
   const { name } = useContext(UserContext);
 

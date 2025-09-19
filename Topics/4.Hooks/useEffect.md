@@ -76,3 +76,82 @@ useEffect(() => {
   };
 }, []);
 ```
+
+**Why we can’t write async function in useEffect()**
+We can’t directly make the callback of useEffect an async function because:
+
+1. What React expects
+   • useEffect expects the callback to either return nothing or a cleanup function.
+   • If you write async () => { ... }, the function automatically returns a Promise.
+   • React would then think you’re returning a cleanup function, but it actually gets a Promise
+   → which is not valid.
+
+. Correct way to handle async inside useEffect
+
+You define an inner async function and call it:
+
+```js
+useEffect(() => {
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const res = await fetch("https://api.example.com/data");
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  fetchData();
+}, []);
+```
+
+So, instead of making useEffect(async () => {...}),
+you wrap the async logic inside the effect.
+
+**What is useLayoutEffect?**
+
+- useLayoutEffect is a React hook similar to useEffect, but it runs synchronously after all DOM mutations and before the browser paints the screen.
+- This means it blocks the paint until your effect finishes.
+- It’s useful when you need to measure DOM elements or synchronously make changes that should be visible before the user sees the UI.
+
+```js
+useLayoutEffect(() => {
+  // Your effect logic
+  return () => {
+    // Cleanup (optional)
+  };
+}, [dependencies]);
+```
+
+**Difference between useEffect and useLayoutEffect**
+s
+
+<table border="1">
+  <tr>
+    <th>Feature</th>
+    <th>useEffect</th>
+    <th>useLayoutEffect</th>
+  </tr>
+  <tr>
+    <td>When it runs</td>
+    <td>After paint (async, non-blocking)</td>
+    <td>Before paint (sync, blocking)</td>
+  </tr>
+  <tr>
+    <td>Performance impact</td>
+    <td>Better (doesn’t block rendering)</td>
+    <td>Can cause jank if heavy</td>
+  </tr>
+  <tr>
+    <td>Use case</td>
+    <td>Data fetching, subscriptions, logging</td>
+    <td>DOM measurements, layout adjustments</td>
+  </tr>
+  <tr>
+    <td>User experience</td>
+    <td>UI may paint first, then effect applies</td>
+    <td>Effect applies before UI is shown</td>
+  </tr>
+</table>
