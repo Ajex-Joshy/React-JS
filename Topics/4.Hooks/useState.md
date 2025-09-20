@@ -54,6 +54,55 @@ function UserProfile() {
 }
 ```
 
+```js
+const App = () => {
+  const [user, setUser] = useState({ name: 'Ajex Joshy', age: 18 });
+  return (
+    <>
+      <p>{user.name}</p>
+      <p>{user.age}</p>
+
+      <button
+        onClick={() => {
+          setUser({ ...user, name: 'Elon' });
+          setUser({ ...user, age: 45 });
+        }}
+      >
+        Update user
+      </button>
+//  Here, you’re using the user variable from the closure (the value of user at the time of render).
+// multiple state updates happen quickly in one render cycle, this can lead to using stale state.
+// Result → you’ll end up with only one update applied (whichever runs last).
+
+      <button
+        onClick={() => {
+          setUser((prev) => ({ ...prev, name: 'Nikhil' }));
+          setUser((prev) => ({ ...prev, age: 35 }));
+        }}
+      >
+        Update user
+      </button>
+// This uses the functional updater form of setState.
+// React guarantees that prev is always the most recent state, even if multiple updates are queued.
+// This is the safer and recommended way when your new state depends on the old state.
+      <button
+        onClick={() => {
+          setUser((prev) => {
+            return { ...prev, name: 'Jack' };
+          });
+          setUser((prev) => {
+            return { ...prev, age: 40 };
+          });
+        }}
+      >
+        Update user
+      </button>
+    </>
+  );
+};
+
+```
+
 now lets study State in more detail
 
 ### State
