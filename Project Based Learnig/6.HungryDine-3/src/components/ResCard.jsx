@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ResCard = ({ resData: { info } }) => {
   const { id, name, cuisines, avgRating, costForTwo, cloudinaryImageId } = info;
   return (
-    <div className="">
+    <div data-testid="res-card" className="">
       <Link className="link" to={"/restaurant/" + id}>
         <div className="w-65 h-90 m-3 rounded-xl hover:bg-gray-300">
           <div className="w-65 h-43  overflow-hidden flex justify-center items-center shadow-lg">

@@ -27165,7 +27165,8 @@ const Body = ()=>{
                                 onChange: (e)=>{
                                     setSearchText(e.target.value);
                                 },
-                                placeholder: "  search restaurant.."
+                                placeholder: "  search restaurant..",
+                                "data-testid": "search-box"
                             }, void 0, false, {
                                 fileName: "src/components/Body.jsx",
                                 lineNumber: 61,
@@ -27180,7 +27181,7 @@ const Body = ()=>{
                                 children: "Search"
                             }, void 0, false, {
                                 fileName: "src/components/Body.jsx",
-                                lineNumber: 70,
+                                lineNumber: 71,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -27195,7 +27196,7 @@ const Body = ()=>{
                                         }))
                             }, void 0, false, {
                                 fileName: "src/components/Body.jsx",
-                                lineNumber: 81,
+                                lineNumber: 82,
                                 columnNumber: 11
                             }, undefined)
                         ]
@@ -27216,18 +27217,18 @@ const Body = ()=>{
                         resData: res
                     }, res.info.id, false, {
                         fileName: "src/components/Body.jsx",
-                        lineNumber: 97,
+                        lineNumber: 98,
                         columnNumber: 13
                     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _resCardDefault.default), {
                         resData: res
                     }, res.info.id, false, {
                         fileName: "src/components/Body.jsx",
-                        lineNumber: 99,
+                        lineNumber: 100,
                         columnNumber: 13
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.jsx",
-                lineNumber: 94,
+                lineNumber: 95,
                 columnNumber: 7
             }, undefined)
         ]
@@ -27270,6 +27271,7 @@ var _reactRouterDom = require("react-router-dom");
 const ResCard = ({ resData: { info } })=>{
     const { id, name, cuisines, avgRating, costForTwo, cloudinaryImageId } = info;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        "data-testid": "res-card",
         className: "",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
             className: "link",
@@ -27479,7 +27481,7 @@ var _constants = require("./constants");
 var _s = $RefreshSig$();
 const useResData = ()=>{
     _s();
-    const [restoList, setRestoList] = (0, _react.useState)(null);
+    const [restoList, setRestoList] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         fetchData();
     }, []);
@@ -27491,7 +27493,7 @@ const useResData = ()=>{
     };
     return restoList;
 };
-_s(useResData, "3LSnWKuD6t1Bm34Z2jDp67+yqSg=");
+_s(useResData, "WTsUPy1u8NGxzlV/OXjR9TrBTFU=");
 exports.default = useResData; // while making an custom hook, first see what is the contract ie
  // what is the input then what is the output set that and then write code
 

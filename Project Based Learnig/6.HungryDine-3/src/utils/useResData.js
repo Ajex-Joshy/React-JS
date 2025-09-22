@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { RES_DATA } from "./constants";
 
 const useResData = () => {
-  const [restoList, setRestoList] = useState(null);
+  const [restoList, setRestoList] = useState([]);
 
   useEffect(() => {
     fetchData();

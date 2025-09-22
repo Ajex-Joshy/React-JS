@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "parcel src/index.html",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "keywords": [],
   "author": "",

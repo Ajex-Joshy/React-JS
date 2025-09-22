@@ -253,11 +253,25 @@ night
 - ep - 14
 
 sun - revision
-mon - review + devTinder
+complete unit testing for resCard + integration testing
+
+
+
+mon - revision
+tue - review + ep - 14
+wed - ep - 15
+thu - ep - 16
+fri - study react + firebase in detail
+sat - redux in detail
+sun - 
+mon - 
+tue - 
+wed - revision
+thu - review
 
 tue - devTinder
-wed - study react + firebase in detail
-Thu - redux in detail
+wed - 
+Thu - 
 Fri -
 Sat -
 Sun -

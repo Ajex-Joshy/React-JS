@@ -66,6 +66,7 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
             placeholder="  search restaurant.."
+            data-testid="search-box"
           />
           <button
             className="mx-3 rounded-sm bg-green-400 px-3 py-1"
