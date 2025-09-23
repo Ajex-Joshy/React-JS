@@ -1,5 +1,4 @@
 import Browse from "./Browse";
-import Header from "./Header";
 import {
   BrowserRouter,
   createBrowserRouter,

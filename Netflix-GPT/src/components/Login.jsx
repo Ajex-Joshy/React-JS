@@ -1,6 +1,15 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { validateForm } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { auth } from "../config/firebase.js";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice.js";
+import { LOGIN_BG_IMG } from "../utils/constants.js";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -10,6 +19,7 @@ const Login = () => {
   const password = useRef("");
   const confirmPassword = useRef("");
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
     const msg = validateForm(
@@ -21,6 +31,59 @@ const Login = () => {
       isSignIn
     );
     setError(msg);
+    // logic for signUp / SignIn
+    if (msg) return;
+
+    if (!isSignIn) {
+      createUserWithEmailAndPassword(
+        auth,
+        emailOrMobNo.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          updateProfile(auth.currentUser, {
+            displayName: `${firstName.current.value} ${lastName.current.value}`,
+          })
+            .then(() => {
+              // Profile updated!
+              const { displayName, email } = auth.currentUser;
+              dispatch(addUser({ displayName, email }));
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+              setError(error.message);
+            });
+
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setError(errorMessage);
+          // ..
+        });
+    } else {
+      signInWithEmailAndPassword(
+        auth,
+        emailOrMobNo.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          // const { displayName, email } = userCredential.user;
+          // dispatch(addUser({ displayName, email }));
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setError(errorMessage);
+        });
+    }
   };
 
   return (
@@ -28,16 +91,17 @@ const Login = () => {
       <div className="w-full h-screen overflow-hidden relative bg-black z-0">
         <img
           className="absolute w-full h-full object-cover scale-125 z-0 hidden sm:block"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/c95abc7a-8124-4630-bb7a-3b160bdc6de3/web/IN-en-20250915-TRIFECTA-perspective_d3d87aa7-58ed-4c6b-98dc-231ed05ba675_large.jpg"
+          src={LOGIN_BG_IMG}
           alt=""
         />
 
         <header className="absolute w-full flex items-center z-20">
-          <img
+          <Header />
+          {/* <img
             className="w-30 pt-3 pl-2 md:w-50 sm:block lg:w-78 lg:pl-30"
             src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2025-08-26/consent/87b6a5c0-0104-4e96-a291-092c11350111/0198e689-25fa-7d64-bb49-0f7e75f898d2/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
             alt="Netflix Logo"
-          />
+          /> */}
         </header>
         <div className="flex justify-center w-full h-screen pt-[15vh]">
           <form

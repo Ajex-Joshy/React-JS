@@ -231,53 +231,30 @@ React will automatically handle the rest: it will compare the new UI state with 
 - **Imperative:** Telling a chef every single step to cook a meal: "Slice the tomato. Now, dice the onion. Now, put them in a pan with oil..."
 - **Declarative:** Giving the chef a recipe: "Make me a bruschetta." The chef knows how to do all the steps and figures out the best way to do them.
 
-sat -
-
-morning session
-useContext
-useReducer
-custom hooks
-Router
-lazy loading
-Handling DOM Events in React
-
-noon session Todo app
-due over toast
-
-eve session
-complete unit testing for resCard - eve
-study integration testing
-
-night
-
-- ep - 14
-
-sun - revision
-complete unit testing for resCard + integration testing
 
 
 
 mon - revision
-tue - review + ep - 14
-wed - ep - 15
-thu - ep - 16
-fri - study react + firebase in detail
-sat - redux in detail
-sun - 
-mon - 
-tue - 
-wed - revision
-thu - review
+tue - review + ep - 15
+wed - ep - 16 + devTinder
+thu - redux + zustand, devTinder
+fri - complete week 2 topics, devTinder
+sat - blog app,  devTinder
+sun - blog app, devTinder
+mon - ep -1
+tue - ep-2
+wed - ep-3 revision
+thu - ep-4 review
 
-tue - devTinder
-wed - 
-Thu - 
-Fri -
-Sat -
-Sun -
-Mon -
-Tue -
-Wed -
+tue - ep-5 devTinder
+wed - ep-6
+Thu - ep-7
+Fri - ep-8
+Sat - ep-9
+Sun - ep-10
+Mon - kafka
+Tue - kafka
+Wed - docker
 Thu - react - 2 review
 
 ep - 15, 16

@@ -14,11 +14,11 @@ export const validateForm = (
       return "Enter a valid mobile number";
   } else if (!validator.isEmail(emailOrMob)) return "Enter a valid email id";
   if (!validator.isStrongPassword(password)) return "Enter a strong password";
-12
   if (!isSignIn) {
-    if (!validator.isAlpha(firstName))
+    if (!validator.isAlpha(firstName.trim()))
       return "First name should be an alphabet";
-    if (!validator.isAlpha(lastName)) return "Last name should be an alphabet";
+    if (!validator.isAlpha(lastName.trim()))
+      return "Last name should be an alphabet";
     if (password !== confirmPassword) return "password does not match";
   }
 
