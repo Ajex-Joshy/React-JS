@@ -6,9 +6,10 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYTIyOWIzYjAxYTA5YTVlNDY2M2JjZWY2MDY5MmVmMyIsIm5iZiI6MTc1ODYzNzIyMi4wODgsInN1YiI6IjY4ZDJhY2E2NmY5ZjQ5NGNjY2Q0MjI4NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.V4dOMWHJ4lzIZtm8YKHCFzLiNgodqtne9Z3AEQR3ZEs",
+    Authorization: import.meta.env.VITE_TMDB_KEY,
   },
 };
 
 export const POSTER_CDN = "https://image.tmdb.org/t/p/w500";
+
+export const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;

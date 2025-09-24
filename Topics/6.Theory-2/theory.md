@@ -231,22 +231,19 @@ React will automatically handle the rest: it will compare the new UI state with 
 - **Imperative:** Telling a chef every single step to cook a meal: "Slice the tomato. Now, dice the onion. Now, put them in a pan with oil..."
 - **Declarative:** Giving the chef a recipe: "Make me a bruschetta." The chef knows how to do all the steps and figures out the best way to do them.
 
-
-
-
 mon - revision
 tue - review + ep - 15
-wed - ep - 16 + devTinder
-thu - redux + zustand, devTinder
+wed - redux + ep - 16 + devTinder
+thu - MobX+ zustand, devTinder
 fri - complete week 2 topics, devTinder
-sat - blog app,  devTinder
+sat - blog app, devTinder
 sun - blog app, devTinder
-mon - ep -1
-tue - ep-2
+mon - ep -1 +  docker
+tue - ep-2 + kafka
 wed - ep-3 revision
 thu - ep-4 review
 
-tue - ep-5 devTinder
+tue - ep-5 
 wed - ep-6
 Thu - ep-7
 Fri - ep-8

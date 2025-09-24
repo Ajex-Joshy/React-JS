@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 const useTrailer = (id) => {
   const [key, setKey] = useState("");
@@ -12,12 +12,11 @@ const useTrailer = (id) => {
       const json = await data.json();
       const trailer = json.results.filter((v) => v.name === "Official Trailer");
       if (!trailer) trailer = json.results[0];
-      console.log(trailer);
       setKey(trailer[0].key);
     };
-    getVideo();
-    return key;
+    !key && getVideo();
   }, [id]);
+  return key;
 };
 
 export default useTrailer;
